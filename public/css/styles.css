@@ -99,6 +99,11 @@ footer {
   text-align: center;
 }
 
+.list-of-lists{
+  margin-top: 50px;
+  float: left;
+}
+
 @media (max-width: 900px) {
   .box{
     max-width: 80%;

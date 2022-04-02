@@ -1,39 +1,34 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-
-<head>
-  <meta charset="utf-8">
-  <title>To do app</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Press+Start+2P&family=Roboto&family=Ubuntu&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-
-<body>
+<%- include("partials/header")%>
+<div class="list-of-lists">
+  <ul>
+    <%listOfLists.forEach((element)=>{%>
+      <li>
+        <h1><a href="/list/<%=element.name%>"><%=element.name%></a></h1>
+      </li>
+    <%});%>
+  </ul>
+</div>
+<div class="list-of-items">
   <div class="box" id="heading">
     <h1><%=listTitle%></h1>
   </div>
 
   <div class="box">
     <form class="" action="/delete" method="post">
-    <%newListItems.forEach((element)=>{%>
-    <div class="item">
-        <input onChange="this.form.submit()" type="checkbox" name = "deleteItem" value = "<%=element._id%>" >
-      <p><%= element.name %></p>
-    </div>
-    <%});%>
-  </form>
+      <%newListItems.forEach((element)=>{%>
+      <div class="item">
+          <input onChange="this.form.submit()" type="checkbox" name = "deleteItem" value = "<%=element._id%>" >
+        <p><%= element.name %></p>
+      </div>
+      <%});%>
+      <input type="hidden" name="listName" value=<%=listTitle %>>
+    </form>
 
-    <form class="item" action="/" method="post">
+    <form class="item" action="/list/<%=listTitle %>" method="post">
       <input type="text" name="newItem" placeholder="New item" autocomplete="off">
-      <button type="submit" name="list" value=<%=listTitle%>>+</button>
+      <button type="submit" name="list" value=<%=listTitle %>>+</button>
     </form>
   </div>
+</div>
 
-
-</body>
-
-</html>
+  <%- include("partials/footer")%>
