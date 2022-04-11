@@ -1,5 +1,7 @@
 <%- include("partials/header")%>
-<div class="list-of-lists">
+
+
+<!-- <div class="list-of-lists">
   <ul>
     <%listOfLists.forEach((element)=>{%>
       <li>
@@ -7,7 +9,63 @@
       </li>
     <%});%>
   </ul>
+</div> -->
+
+
+<!-- <div id="content">
+  <span class="slide">
+    <a href="#" onclick="openSlideMenu()">
+      <i class="fas fa-bars"></i>
+    </a>
+  </span>
+
+  <div class="nav" id="menu">
+    <a href="#" class="close" onclick="closeSlideMenu()">
+      <i class="fas fa-times"></i>
+    </a>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Content</a>
+  </div>
+  <h1>Responsive Animated Sidebar Menu</h1>
+</div> -->
+
+<div id="content">
+  <span class="slide">
+    <a href="#" onclick="openSlideMenu()">
+      <i id="burger-icon" class="fas fa-bars"></i>
+    </a>
+  </span>
+
+  <div class="nav" id="menu">
+    <a href="#" class="close" onclick="closeSlideMenu()">
+      <i class="fas fa-times"></i>
+    </a>
+    <a href="#">Senad Mesetovic</a>
+    <hr>
+    <a href="#"><i class="fa-solid fa-sun"></i>    My day</a>
+    <a href="#"><i class="fa-solid fa-triangle-exclamation"></i>    Important</a>
+    <a href="#"><i class="fa-solid fa-calendar"></i>    Planned</a>
+    <a href="#"><i class="fa-solid fa-house-circle-check"></i>    Tasks</a>
+
+    <hr>
+    <%listOfLists.forEach((element)=>{%>
+    <a href="/list/<%=element.name%>"><i class="fa-solid fa-list-ul"></i>    <%=element.name%></a>
+    <%});%>
+    <hr>
+    <form class="item" action="index.html" method="post">
+      <input type="text" name="" placeholder="New list">
+      <button type="submit" name="button">+</button>
+    </form>
+<hr>
+  </div>
+  <!-- <h1>Responsive Animated Sidebar Menu</h1> -->
 </div>
+
+
+
 <div class="list-of-items">
   <div class="box" id="heading">
     <h1><%=listTitle%></h1>
@@ -17,7 +75,7 @@
     <form class="" action="/delete" method="post">
       <%newListItems.forEach((element)=>{%>
       <div class="item">
-          <input onChange="this.form.submit()" type="checkbox" name = "deleteItem" value = "<%=element._id%>" >
+        <input onChange="this.form.submit()" type="checkbox" name="deleteItem" value="<%=element._id%>">
         <p><%= element.name %></p>
       </div>
       <%});%>
@@ -29,6 +87,24 @@
       <button type="submit" name="list" value=<%=listTitle %>>+</button>
     </form>
   </div>
+
+
+
+<div class="box">
+  <details close>
+    <summary>Ended Tasks</summary>
+    <%newListItems.forEach((element)=>{%>
+    <div class="item">
+      <input onChange="this.form.submit()" type="checkbox" name="deleteItem" value="<%=element._id%>">
+      <p><%= element.name %></p>
+    </div>
+    <%});%>
+  </details>
 </div>
 
-  <%- include("partials/footer")%>
+
+
+
+</div>
+
+<%- include("partials/footer")%>

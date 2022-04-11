@@ -80,7 +80,8 @@ const today = new List({
 // });
 
 app.get("/",(req,res)=>{
-  res.redirect("/list/today");
+  // List.deleteMany(()=>{});
+  res.redirect("/list/Today");
 });
 
 app.post("/Today", function(req, res) {

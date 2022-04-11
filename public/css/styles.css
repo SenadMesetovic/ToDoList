@@ -7,6 +7,64 @@ html {
   font-family: 'Roboto', sans-serif;
 }
 
+body{
+  overflow-x: hidden;
+}
+.nav{
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white;
+  opacity: 0.9;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.4s;
+}
+.nav a {
+  display: block;
+  margin-left: 15px;
+  padding: 20px, 30px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 2.5rem;
+  color: #00204a;
+}
+.nav a:hover{
+  color: gray;
+  transition: 0.4s;
+}
+.nav .close{
+  position: absolute;
+  top: 0;
+  right: 22px;
+  margin-left: 50px;
+  font-size: 30px;
+}
+.slide a{
+  color: #000;
+  font-size: 36px;
+}
+#content{
+  padding: 20px;
+  transition: marginLeft 0.7s;
+  overflow: hidden;
+  width: 100%;
+}
+
+
+/* details[open] summary ~ * {
+  animation: sweep .5s ease-in-out;
+}
+
+@keyframes sweep {
+  0%    {opacity: 0; margin-left: -10px}
+  100%  {opacity: 1; margin-left: 0px}
+} */
+
 h1 {
   color: #fff;
   padding: 10px;
@@ -14,7 +72,7 @@ h1 {
 
 .box {
   max-width: 400px;
-  margin: 50px auto;
+  margin: 10px auto 0 auto;
   background: white;
   border-radius: 5px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
@@ -108,4 +166,14 @@ footer {
   .box{
     max-width: 80%;
   }
+}
+
+
+
+.box details{
+  margin: 0;
+  background: lightgray;
+  border-radius: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
